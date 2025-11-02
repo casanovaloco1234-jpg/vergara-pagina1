@@ -1,86 +1,167 @@
+/* ===== jose1.css corregido y responsive ===== */
+
+/* Header */
 header {
-   background-color: rgb(0, 46, 131);
-    width: 100%;
-   position:fixed;
-   z-index:100;
-   top:0;
-   left: 0;
-
-}
-.logo  {
-  margin-left: 220px;
-
-}
-img{
-    width:200px;
-
-    
-}
-nav ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-   overflow: hidden;
-   gap:15px;
-   padding: 0;
-
+  background-color: rgb(0, 46, 131);
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  height: 70px;
 }
 
-nav {
-    float: right;
+/* Logo */
+.logo {
+  max-width: 160px;
+  height: auto;
 }
 
+/* Imágenes globales */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Navegación */
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
 
 nav ul li {
-    float: right;
-     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 18px;
 }
+
 nav ul li a {
-    display: flex;
-    color:white;
-    text-decoration: none;
-    padding: 20px;
-
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  transition: background 0.3s;
 }
+
+nav ul li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Grilla de productos */
 .grillas {
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(200px,max-content));
-    margin-top:7%;
-   margin-left: 320px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  padding: 100px 16px 40px; /* deja espacio para header fijo */
 }
+
+/* Tarjeta de producto */
 .grilla1 {
-    background-color:rgba(#9b9797, rgb(134, 137, 134), rgb(133, 133, 133), alpha);
-    padding: 5px;
-    border:1px solid #867c7c;
-    box-shadow: #f2e9e9;
-    gap:5px;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
 }
+
+.grilla1:hover {
+  transform: scale(1.03);
+}
+
+/* Imagen dentro de la tarjeta */
 .grilla1 img {
-    width:90px;
-    height: 120px;
-    justify-content: center;
-
-  padding: 20px;
- 
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
 }
+
+/* Título del producto */
 .grilla1 h5 {
-    justify-content: center;
-    margin-top: 25px;
-      font-family:Arial, Helvetica, sans-serif;
-      font-size: 15px;
-      text-decoration: none;
-    
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 10px 0;
+  color: #333;
 }
-.grilla1 button {
-    margin-top: 30px;
-    background-color: rgb(195, 24, 24);
-    padding: 10px;
-    border-radius: 5px;   
-     color: white;
-    text-decoration: none;
-    width: 220px;
-    border: none;
 
-    }
+/* Botón */
+.grilla1 button {
+  background-color: rgb(195, 24, 24);
+  padding: 10px;
+  border-radius: 6px;
+  color: white;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.grilla1 button:hover {
+  background-color: rgb(150, 0, 0);
+}
+
+/* ===== Diseño responsive ===== */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 992px) {
+  header {
+    height: 65px;
+    padding: 0 10px;
+  }
+
+  nav ul {
+    gap: 10px;
+  }
+
+  .grilla1 img {
+    height: 160px;
+  }
+}
+
+/* Celulares (pantallas pequeñas) */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .logo {
+    max-width: 120px;
+    margin-bottom: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .grillas {
+    padding: 120px 12px 40px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .grilla1 img {
+    height: 140px;
+  }
+
+  .grilla1 button {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
